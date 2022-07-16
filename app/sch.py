@@ -13,6 +13,8 @@ from math import ceil
 # from textwrap3 import wrap
 import os
 
+path = os.path.abspath(os.path.dirname(__file__))
+    
 # Utils =============================================================
 # (for compressing/decompressing the payload)
 
@@ -30,58 +32,60 @@ def inflate( compressed ):
 
 def get_FHIR_bundle1(conf):
     ''' Generate the vaccination record itself.'''
-
+    path = os.path.abspath(os.path.dirname(__file__))
+    
     given_names = conf["given_names"]
     if type(given_names) == str:
         given_names = given_names.split(" ")
 
-    patient = {
-      'fullUrl': 'resource:0', 
-      'resource': {
-        'resourceType': 'Patient', 
-        'name': [{'family': conf['family_name'], 'given': given_names}], 
-        'birthDate': str(conf['date_of_birth'])}
-    }
+    # patient = {
+    #   'fullUrl': 'resource:0', 
+    #   'resource': {
+    #     'resourceType': 'Patient', 
+    #     'name': [{'family': conf['family_name'], 'given': given_names}], 
+    #     'birthDate': str(conf['date_of_birth'])}
+    # }
 
-    imm1 = { 'fullUrl': 'resource:1', 
-      'resource': {
-            'resourceType': 'Immunization', 
-            'status': 'completed', 
-            'vaccineCode': {'coding': [{'system': 'http://hl7.org/fhir/sid/cvx', 'code': '207'}]}, 
-            'patient': {'reference': 'resource:0'},
-            'occurrenceDateTime': str(conf['first_shot']['date']), 
-            'performer': [{'actor': 
-                {'display': conf['first_shot']['administered_by']}}],
-            'lotNumber': str(conf['first_shot']['lot_number'])
-      }
-    }
+    # imm1 = { 'fullUrl': 'resource:1', 
+    #   'resource': {
+    #         'resourceType': 'Immunization', 
+    #         'status': 'completed', 
+    #         'vaccineCode': {'coding': [{'system': 'http://hl7.org/fhir/sid/cvx', 'code': '207'}]}, 
+    #         'patient': {'reference': 'resource:0'},
+    #         'occurrenceDateTime': str(conf['first_shot']['date']), 
+    #         'performer': [{'actor': 
+    #             {'display': conf['first_shot']['administered_by']}}],
+    #         'lotNumber': str(conf['first_shot']['lot_number'])
+    #   }
+    # }
 
-    imm2 = {
-      'fullUrl': 'resource:2', 
-      'resource': {
-        'resourceType': 'Immunization',
-        'status': 'completed',
-        'vaccineCode': {'coding': [{'system': 'http://hl7.org/fhir/sid/cvx', 'code': '207'}]}, 
-        'patient': {'reference': 'resource:0'}, 
-        'occurrenceDateTime': str(conf['second_shot']['date']), 
-        'performer': [{'actor': 
-            {'display': conf['second_shot']['administered_by']}}], 
-            'lotNumber': conf['second_shot']['lot_number']
-      }
-    }
+    # imm2 = {
+    #   'fullUrl': 'resource:2', 
+    #   'resource': {
+    #     'resourceType': 'Immunization',
+    #     'status': 'completed',
+    #     'vaccineCode': {'coding': [{'system': 'http://hl7.org/fhir/sid/cvx', 'code': '207'}]}, 
+    #     'patient': {'reference': 'resource:0'}, 
+    #     'occurrenceDateTime': str(conf['second_shot']['date']), 
+    #     'performer': [{'actor': 
+    #         {'display': conf['second_shot']['administered_by']}}], 
+    #         'lotNumber': conf['second_shot']['lot_number']
+    #   }
+    # }
 
-    FHIR = {
-        "resourceType":"Bundle",
-        "type":"collection",
-        "entry": [patient,imm1,imm2]
-    }
+    # FHIR = {
+    #     "resourceType":"Bundle",
+    #     "type":"collection",
+    #     "entry": [patient,imm1,imm2]
+    # }
 
-    FHIR = json.load(open('bundle.json', 'r'))
+    FHIR = json.load(open(f'{path}/bundle.json', 'r'))
     return FHIR
 
 def get_FHIR_bundle(conf):
+    path = os.path.abspath(os.path.dirname(__file__))
     # FHIR = json.load(open('PatientObservation.json', 'r'))
-    FHIR = json.load(open('bundle.json', 'r'))
+    FHIR = json.load(open(f'{path}/bundle.json', 'r'))
     return FHIR
 
 def get_VC_bundle(FHIR, issuer_url):
@@ -136,17 +140,19 @@ def gen_keys():
     '''
     key = jwk.JWK.generate(**{"kty":"EC", "crv":"P-256", "alg":"ES256", "use":"sig"})
     key_info = json.loads(key.export(private_key=True))
-
+    path = os.path.abspath(os.path.dirname(__file__))
+    
+    
     print(key.export(private_key=True))
     
     key_info["kid"] = key.thumbprint()
 
-    with open("private_jwk.json","w") as f:
+    with open(f"{path}/private_jwk.json","w") as f:
         json.dump(key_info, f)
 
     del key_info["d"] # Very Important! Don't make private key public.
 
-    with open("jwks.json","w") as f:
+    with open(f"{path}/jwks.json","w") as f:
         obj = {"keys":[key_info]}
         json.dump(obj,f)
 
@@ -155,7 +161,9 @@ def sign_JWS(payload, key_file="private_jwk.json"):
     representing the private key information, sign and encode into a
     serialized jws token.'''
 
-    key_data = json.load(open(key_file, "r"))
+    path = os.path.abspath(os.path.dirname(__file__))
+    
+    key_data = json.load(open(f"{path}/{key_file}", "r"))
     private_key = jwk.JWK(**key_data)
 
     header = {"kid":private_key.thumbprint(), "zip":"DEF", "alg":"ES256"}
@@ -173,12 +181,13 @@ def load_and_verify_jws_token(token, key_file="example_jwks.json"):
     
     Lots of hacks in this, since I just used it for testing.  This is not
     good as a general-purpose smart-health-card file reader.'''
-
+    path = os.path.abspath(os.path.dirname(__file__))
+    
     # Load public key from file.
     # TODO Fetch from specified url?
     #  (This would require extracting the package without verifying, which this
     #  jws library does not allow...)
-    with open(key_file,"r") as f:
+    with open(f"{path}/{key_file}","r") as f:
         key_data = json.load(f)
 
     # TODO Check correct key, not just the first one.
@@ -200,7 +209,8 @@ def remove_files(f):
 
 def gen_SHC(config_file="config.yaml", write_file=False):
     ''' Generate a smart health card based on the given config file.'''
-    config = yaml.load(open(config_file, "r"), Loader=yaml.FullLoader)
+    path = os.path.abspath(os.path.dirname(__file__))
+    config = yaml.load(open(f"{path}/{config_file}", "r"), Loader=yaml.FullLoader)
 
     issuer_url = config['issuer_url']
     key_file = config['key_file']
@@ -217,10 +227,10 @@ def gen_SHC(config_file="config.yaml", write_file=False):
     print(jws_token)
 
     # Write smart health file
-    if write_file:
-        final_data = json.dumps({"verifiableCredential": [jws_token]})
-        with open("test.smart-health-card","w") as f:
-            f.write(final_data)
+    # if write_file:
+    #     final_data = json.dumps({"verifiableCredential": [jws_token]})
+    #     with open("test.smart-health-card","w") as f:
+    #         f.write(final_data)
         
     # Generate QR code.
     chunks, number_of_chunk = make_chunk(jws_token)

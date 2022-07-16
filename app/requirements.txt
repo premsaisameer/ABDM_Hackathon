@@ -2,5 +2,5 @@ qrcode
 jwcrypto
 pyyaml
 opencv-python
-yaml
+pyyaml
 pyzbar
