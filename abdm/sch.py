@@ -134,7 +134,7 @@ def gen_keys():
       jwks.json: public key, to be placed at issuer_url/.well-known/jwks.json
       private_jwk.json: jwk file for private key, to be kept secret.
     '''
-    key = jwk.JWK.generate(**{"kty":"EC","crv":"P-256","alg":"ES256", "use":"sig"})
+    key = jwk.JWK.generate(**{"kty":"EC", "crv":"P-256", "alg":"ES256", "use":"sig"})
     key_info = json.loads(key.export(private_key=True))
 
     print(key.export(private_key=True))
@@ -229,8 +229,6 @@ def gen_SHC(config_file="config.yaml", write_file=False):
     remove_files('qr_code')
 
     for i, chunk in enumerate(chunks, 1):
-        # img = qrcode.make(token_to_qr(jws_token))
-        # img.save(output_file)
         img = qrcode.make(token_to_qr(chunk, i, number_of_chunk))
         print(type(img))
         return img
