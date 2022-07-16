@@ -226,7 +226,7 @@ def gen_SHC(config_file="config.yaml", write_file=False):
     chunks, number_of_chunk = make_chunk(jws_token)
 
     os.makedirs('qr_code', exist_ok=True)
-    remove_files('qr_code')
+    remove_files('qr_code') 
 
     for i, chunk in enumerate(chunks, 1):
         img = qrcode.make(token_to_qr(chunk, i, number_of_chunk))
