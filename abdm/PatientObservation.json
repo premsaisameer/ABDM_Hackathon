@@ -1,0 +1,890 @@
+{
+  "resourceType": "Bundle",
+  "id": "50008629-5184-4c16-a163-d8b85e92e918",
+  "meta": {
+    "lastUpdated": "2022-07-15T06:19:08.486+00:00"
+  },
+  "type": "searchset",
+  "link": [ {
+    "relation": "self",
+    "url": "https://hapi.fhir.org/baseR4/Observation?_patient=3014599"
+  }, {
+    "relation": "next",
+    "url": "https://hapi.fhir.org/baseR4?_getpages=50008629-5184-4c16-a163-d8b85e92e918&_getpagesoffset=20&_count=20&_pretty=true&_bundletype=searchset"
+  } ],
+  "entry": [ {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650551",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650551",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650549"
+      },
+      "effectiveDateTime": "2009-09-03T19:33:18-04:00",
+      "issued": "2009-09-03T19:33:18.715-04:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650309",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650309",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650308"
+      },
+      "effectiveDateTime": "1954-10-07T18:33:18-05:00",
+      "issued": "1954-10-07T18:33:18.715-05:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650498",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650498",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650497"
+      },
+      "effectiveDateTime": "2000-06-22T19:33:18-04:00",
+      "issued": "2000-06-22T19:33:18.715-04:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650591",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650591",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "2069-3",
+          "display": "Chloride"
+        } ],
+        "text": "Chloride"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650584"
+      },
+      "effectiveDateTime": "2017-09-28T19:33:18-04:00",
+      "issued": "2017-09-28T19:33:18.715-04:00",
+      "valueQuantity": {
+        "value": 103.68,
+        "unit": "mmol/L",
+        "system": "http://unitsofmeasure.org",
+        "code": "mmol/L"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650263",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650263",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650262"
+      },
+      "effectiveDateTime": "1944-08-10T19:33:18-04:00",
+      "issued": "1944-08-10T19:33:18.715-04:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650272",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650272",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650271"
+      },
+      "effectiveDateTime": "1946-08-22T19:33:18-04:00",
+      "issued": "1946-08-22T19:33:18.715-04:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650293",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650293",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650292"
+      },
+      "effectiveDateTime": "1951-09-20T19:33:18-04:00",
+      "issued": "1951-09-20T19:33:18.715-04:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650646",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650646",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns", "http://hl7.org/fhir/StructureDefinition/heartrate" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "vital-signs"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        } ],
+        "text": "Heart rate"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650505"
+      },
+      "effectivePeriod": {
+        "start": "2003-07-10T19:33:18-04:00",
+        "end": "2003-07-10T20:33:18-04:00"
+      },
+      "issued": "2003-07-10T19:33:18.715-04:00",
+      "valueQuantity": {
+        "value": 65,
+        "unit": "/min",
+        "system": "http://unitsofmeasure.org",
+        "code": "/min"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650436",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650436",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650435"
+      },
+      "effectiveDateTime": "1986-04-03T18:33:18-05:00",
+      "issued": "1986-04-03T18:33:18.715-05:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650398",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650398",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650397"
+      },
+      "effectiveDateTime": "1977-02-10T18:33:18-05:00",
+      "issued": "1977-02-10T18:33:18.715-05:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650358",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650358",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650357"
+      },
+      "effectiveDateTime": "1966-12-15T18:33:18-05:00",
+      "issued": "1966-12-15T18:33:18.715-05:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650560",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650560",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650559"
+      },
+      "effectiveDateTime": "2012-08-30T19:33:18-04:00",
+      "issued": "2012-08-30T19:33:18.715-04:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650460",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650460",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns", "http://hl7.org/fhir/StructureDefinition/bp" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "vital-signs"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "85354-9",
+          "display": "Blood Pressure"
+        } ],
+        "text": "Blood Pressure"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650459"
+      },
+      "effectiveDateTime": "1994-05-19T19:33:18-04:00",
+      "issued": "1994-05-19T19:33:18.715-04:00",
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "8462-4",
+            "display": "Diastolic Blood Pressure"
+          } ],
+          "text": "Diastolic Blood Pressure"
+        },
+        "valueQuantity": {
+          "value": 85,
+          "unit": "mm[Hg]",
+          "system": "http://unitsofmeasure.org",
+          "code": "mm[Hg]"
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic Blood Pressure"
+          } ],
+          "text": "Systolic Blood Pressure"
+        },
+        "valueQuantity": {
+          "value": 129,
+          "unit": "mm[Hg]",
+          "system": "http://unitsofmeasure.org",
+          "code": "mm[Hg]"
+        }
+      } ]
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650586",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650586",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "laboratory"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "6299-2",
+          "display": "Urea Nitrogen"
+        } ],
+        "text": "Urea Nitrogen"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650584"
+      },
+      "effectiveDateTime": "2017-09-28T19:33:18-04:00",
+      "issued": "2017-09-28T19:33:18.715-04:00",
+      "valueQuantity": {
+        "value": 13.18,
+        "unit": "mg/dL",
+        "system": "http://unitsofmeasure.org",
+        "code": "mg/dL"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650476",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650476",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650475"
+      },
+      "effectiveDateTime": "1998-06-11T19:33:18-04:00",
+      "issued": "1998-06-11T19:33:18.715-04:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2650317",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2650317",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T13:22:47.254+00:00",
+        "source": "#ra1MfTwmhGmHsTJ2",
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus" ]
+      },
+      "status": "final",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "survey"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72166-2",
+          "display": "Tobacco smoking status NHIS"
+        } ],
+        "text": "Tobacco smoking status NHIS"
+      },
+      "subject": {
+        "reference": "Patient/2650195"
+      },
+      "encounter": {
+        "reference": "Encounter/2650316"
+      },
+      "effectiveDateTime": "1955-10-13T19:33:18-04:00",
+      "issued": "1955-10-13T19:33:18.715-04:00",
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "266919005",
+          "display": "Never smoker"
+        } ],
+        "text": "Never smoker"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2652213",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2652213",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T21:27:37.441+00:00",
+        "source": "#zqxPKqRRfShEj69F"
+      },
+      "status": "final",
+      "code": {
+        "text": "Thrombozyten"
+      },
+      "subject": {
+        "reference": "Patient/2652207"
+      },
+      "effectiveDateTime": "2005-05-30T13:37:00+02:00",
+      "valueQuantity": {
+        "value": 175
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2652212",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2652212",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T21:27:37.441+00:00",
+        "source": "#zqxPKqRRfShEj69F"
+      },
+      "status": "final",
+      "code": {
+        "text": "Leukozyten"
+      },
+      "subject": {
+        "reference": "Patient/2652207"
+      },
+      "effectiveDateTime": "2005-05-30T13:37:00+02:00",
+      "valueQuantity": {
+        "value": 23
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2652211",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2652211",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T21:27:37.441+00:00",
+        "source": "#zqxPKqRRfShEj69F"
+      },
+      "status": "final",
+      "code": {
+        "text": "Haemoglobin"
+      },
+      "subject": {
+        "reference": "Patient/2652207"
+      },
+      "effectiveDateTime": "2005-05-25T13:37:00+02:00",
+      "valueQuantity": {
+        "value": 16.0,
+        "unit": "g/dl"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  }, {
+    "fullUrl": "https://hapi.fhir.org/baseR4/Observation/2652210",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "2652210",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-10-20T21:27:37.441+00:00",
+        "source": "#zqxPKqRRfShEj69F"
+      },
+      "status": "final",
+      "code": {
+        "text": "Erythrozyten"
+      },
+      "subject": {
+        "reference": "Patient/2652207"
+      },
+      "effectiveDateTime": "2005-05-25T13:37:00+02:00",
+      "valueQuantity": {
+        "value": 5.39,
+        "unit": "10^12/L"
+      }
+    },
+    "search": {
+      "mode": "match"
+    }
+  } ]
+}
