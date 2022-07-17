@@ -1,0 +1,10 @@
+Flask
+flask_paginate
+gunicorn
+qrcode
+jwcrypto
+pyyaml
+opencv-python
+pyzbar
+Image
+pillow

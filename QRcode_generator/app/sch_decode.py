@@ -74,6 +74,10 @@ def decode(data):
         return base64.urlsafe_b64decode(data)
 
 def inflate(jws_parts):
+    shc_data = zlib.decompress(jws_parts, wbits=-15).decode("utf-8") # {"iss":"https://c19.cards/issuer","nbf":1591037940,"vc":{"type":["https://smarthealth.cards#covid19", ...
+    return shc_data
+
+def inflate_(jws_parts):
     shc_data = zlib.decompress(jws_parts[1], wbits=-15).decode("utf-8") # {"iss":"https://c19.cards/issuer","nbf":1591037940,"vc":{"type":["https://smarthealth.cards#covid19", ...
     return shc_data
 
@@ -82,8 +86,8 @@ def get_FHIR_bundle(shc_data):
     return shc_data['vc']['credentialSubject']['fhirBundle']
 
 print('-------------------------------------------------')
-if __name__=="__main__":
-    qr_file = os.listdir("qr_code")
+def decode():
+    qr_file = os.listdir("source")
     # qr_file = ['chunk_1.png']
     jws = ""
     for file in qr_file:
@@ -100,6 +104,6 @@ if __name__=="__main__":
     print('==========================================')
     print(abc)
 
-    shc_data = inflate(jws_parts)
+    shc_data = inflate_(jws_parts)
     fhir = get_FHIR_bundle(shc_data)
     # pprint(fhir)

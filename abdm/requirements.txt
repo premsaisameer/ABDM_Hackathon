@@ -1,6 +1,0 @@
-qrcode
-jwcrypto
-pyyaml
-opencv-python
-yaml
-pyzbar
