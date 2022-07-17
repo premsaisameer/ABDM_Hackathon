@@ -1,12 +1,21 @@
-from flask import Flask, redirect, request, jsonify, send_file,session
-import os,json
-from app.sch_decode import QRdecode 
+import json
+from flask import request
+from app.sch_decode import QRdecode , verification
 from app import app
-
 
 @app.route('/decode', methods= ['POST'])
 def decodeQR():
-    path = os.path.abspath(os.path.dirname(__file__))
-    # file = request.files['image']
-    fhir_bundle = QRdecode(path)
+    json_args = json.loads(request.data)
+    qr_data = json_args['qr_data']
+    fhir_bundle = QRdecode(qr_data)
     return fhir_bundle
+
+
+@app.route('/verification', methods= ['POST'])
+def verify():
+    json_args = json.loads(request.data)
+    qr_data = json_args['qr_data']
+    Verification_status = verification(qr_data)
+    return Verification_status
+
+  
