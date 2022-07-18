@@ -2,11 +2,9 @@ import zlib
 import re
 import base64
 import json
-from pprint import pprint
 import os
-from pyzbar.pyzbar import decode as dec
 from jwcrypto import jwk, jws
-from jwcrypto.common import json_encode
+
 
 # ================================================
 def load_and_verify_jws_token(token, key_file="jwks.json"):
@@ -63,7 +61,46 @@ def QRdecode(qr_data):
     jws_parts = list(map(decode, jws_.split(".")))
     shc_data = inflate_(jws_parts)
     fhir = get_FHIR_bundle(shc_data)
-    return fhir
+    return processed_fhir_bundle(fhir)
+
+# =======================================================
+def processed_fhir_bundle(fhir_bundle):
+    processed_bundle = {}
+    processed_bundle['patients'] = {}
+
+    patient = processed_bundle['patients']
+    patient['Demographics'] = {}
+    patient['clinicalData'] = {}
+    patient['clinicalData']['FamilyHistory'] = []
+    patient['clinicalData']['Procedures'] =[]
+    patient['clinicalData']['Allergies'] =[]
+    patient['clinicalData']['Medication'] =[]
+
+    try :   
+        patient['meta'] = fhir_bundle['meta']
+    except:
+        pass
+    for x in fhir_bundle['entry']:
+        print(x['resource']['resourceType'])
+        if x['resource']['resourceType'] == 'Patient':
+            patient['patientID'] = x['resource']['identifier'][0]['value']
+            patient['Demographics']['name'] = x['resource']['name'][0]['text']
+            patient['Demographics']['gender'] = x['resource']['gender']
+            patient['Demographics']['birthDate'] = x['resource']['birthDate']
+        elif x['resource']['resourceType'] == 'FamilyMemberHistory':
+            val = {}
+            val['display']=(x['resource']['condition'][0]['code']['coding'][0]['display'])
+            patient['clinicalData']['FamilyHistory'].append(val)
+        elif x['resource']['resourceType'] == 'Procedure':
+            val = {}
+            val['display']=(x['resource']['code']['coding'][0]['display'])
+            patient['clinicalData']['Procedures'].append(val)
+        elif x['resource']['resourceType'] == 'MedicationStatement':
+            val = {}
+            val['display']=(x['resource']['medicationCodeableConcept']['coding'][0]['display'])
+            patient['clinicalData']['Medication'].append(val)
+
+    return processed_bundle
 
 # =======================================================
 def verification(qr_data):
