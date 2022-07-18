@@ -10,7 +10,6 @@ from jwcrypto import jwk, jws
 from jwcrypto.common import json_encode
 from pprint import pprint
 from math import ceil
-# from textwrap3 import wrap
 import os
 
 path = os.path.abspath(os.path.dirname(__file__))
@@ -29,58 +28,6 @@ def inflate( compressed ):
     return zlib.decompress(compressed, -15).decode("utf-8")
 
 # Main token-creation functions =========================================
-
-def get_FHIR_bundle1(conf):
-    ''' Generate the vaccination record itself.'''
-    path = os.path.abspath(os.path.dirname(__file__))
-    
-    given_names = conf["given_names"]
-    if type(given_names) == str:
-        given_names = given_names.split(" ")
-
-    # patient = {
-    #   'fullUrl': 'resource:0', 
-    #   'resource': {
-    #     'resourceType': 'Patient', 
-    #     'name': [{'family': conf['family_name'], 'given': given_names}], 
-    #     'birthDate': str(conf['date_of_birth'])}
-    # }
-
-    # imm1 = { 'fullUrl': 'resource:1', 
-    #   'resource': {
-    #         'resourceType': 'Immunization', 
-    #         'status': 'completed', 
-    #         'vaccineCode': {'coding': [{'system': 'http://hl7.org/fhir/sid/cvx', 'code': '207'}]}, 
-    #         'patient': {'reference': 'resource:0'},
-    #         'occurrenceDateTime': str(conf['first_shot']['date']), 
-    #         'performer': [{'actor': 
-    #             {'display': conf['first_shot']['administered_by']}}],
-    #         'lotNumber': str(conf['first_shot']['lot_number'])
-    #   }
-    # }
-
-    # imm2 = {
-    #   'fullUrl': 'resource:2', 
-    #   'resource': {
-    #     'resourceType': 'Immunization',
-    #     'status': 'completed',
-    #     'vaccineCode': {'coding': [{'system': 'http://hl7.org/fhir/sid/cvx', 'code': '207'}]}, 
-    #     'patient': {'reference': 'resource:0'}, 
-    #     'occurrenceDateTime': str(conf['second_shot']['date']), 
-    #     'performer': [{'actor': 
-    #         {'display': conf['second_shot']['administered_by']}}], 
-    #         'lotNumber': conf['second_shot']['lot_number']
-    #   }
-    # }
-
-    # FHIR = {
-    #     "resourceType":"Bundle",
-    #     "type":"collection",
-    #     "entry": [patient,imm1,imm2]
-    # }
-
-    FHIR = json.load(open(f'{path}/bundle.json', 'r'))
-    return FHIR
 
 def get_FHIR_bundle(conf):
     path = os.path.abspath(os.path.dirname(__file__))
@@ -126,8 +73,6 @@ def make_chunk(token):
 
 def token_to_qr(token, i, number_of_chunk):
     ''' Implement the weird numerical encoding used by the shc standard. '''
-    print('=======================',len(token))
-    print(token)
     qr = f"shc:/{i}/{number_of_chunk}/" + "".join([f"{(ord(c)-45):02d}" for c in token])
     return qr
 
@@ -141,9 +86,6 @@ def gen_keys():
     key = jwk.JWK.generate(**{"kty":"EC", "crv":"P-256", "alg":"ES256", "use":"sig"})
     key_info = json.loads(key.export(private_key=True))
     path = os.path.abspath(os.path.dirname(__file__))
-    
-    
-    print(key.export(private_key=True))
     
     key_info["kid"] = key.thumbprint()
 
@@ -173,32 +115,6 @@ def sign_JWS(payload, key_file="private_jwk.json"):
 
     return token.serialize(compact=True) # b64 string of the token.
 
-def load_and_verify_jws_token(token, key_file="example_jwks.json"):
-    ''' Read & validate a serialized token.
-    
-    Throws an error if invalid (assuming signed by the example issuer),
-    otherwise returns the (decompressed) payload (in dict form).
-    
-    Lots of hacks in this, since I just used it for testing.  This is not
-    good as a general-purpose smart-health-card file reader.'''
-    path = os.path.abspath(os.path.dirname(__file__))
-    
-    # Load public key from file.
-    # TODO Fetch from specified url?
-    #  (This would require extracting the package without verifying, which this
-    #  jws library does not allow...)
-    with open(f"{path}/{key_file}","r") as f:
-        key_data = json.load(f)
-
-    # TODO Check correct key, not just the first one.
-    public_key = jwk.JWK(**key_data["keys"][0])
-
-    jws_token = jws.JWS()
-    jws_token.deserialize(token)
-    jws_token.verify(public_key)
-
-    return json.loads(inflate(jws_token.payload)) # inflate = uncompress
-
 def remove_files(f):
     try:
         for element in os.listdir(f):
@@ -222,15 +138,6 @@ def gen_SHC(config_file="config.yaml", write_file=False):
     payload = deflate(json.dumps(vc, separators=(",", ":")))
 
     jws_token = sign_JWS(payload, key_file=key_file) # NB: is str, not bytes
-    print('======================================')
-    print(type(jws_token))
-    print(jws_token)
-
-    # Write smart health file
-    # if write_file:
-    #     final_data = json.dumps({"verifiableCredential": [jws_token]})
-    #     with open("test.smart-health-card","w") as f:
-    #         f.write(final_data)
         
     # Generate QR code.
     chunks, number_of_chunk = make_chunk(jws_token)
@@ -240,11 +147,8 @@ def gen_SHC(config_file="config.yaml", write_file=False):
 
     for i, chunk in enumerate(chunks, 1):
         img = qrcode.make(token_to_qr(chunk, i, number_of_chunk))
-        print(type(img))
         return img
-        # img.save(f'qr_code/chunk_{i}.png')
-
-print('========================================================')
+# ========================================================
 if __name__=="__main__":
     if len(sys.argv) != 2:
         print("Usage:")
